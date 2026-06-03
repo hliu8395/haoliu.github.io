@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hao Liu | Human Factors, Digital Health, and Human–AI Interaction</title>
+  <meta name="description" content="Personal academic homepage of Hao Liu, PhD Candidate in Human Factors, Digital Health, and Human–AI Interaction." />
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --muted: #5b6472;
+      --line: #e5e7eb;
+      --accent: #1d4ed8;
+      --accent-soft: #dbeafe;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --maxw: 1080px;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--maxw));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(247, 248, 251, 0.88);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.75);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 56px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 360px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      align-self: flex-start;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 0 0 18px;
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .intro {
+      margin: 0;
+      max-width: 70ch;
+      color: var(--text);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .hero-side {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      min-height: 360px;
+    }
+
+    .photo-box {
+      flex: 1;
+      min-height: 250px;
+      border: 1.5px dashed #c7cfdb;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: linear-gradient(180deg, #fbfcff, #f1f5f9);
+      color: var(--muted);
+      text-align: center;
+      padding: 18px;
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-note {
+      font-size: 0.92rem;
+      max-width: 24ch;
+    }
+
+    .side-block {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    .side-title {
+      margin: 0 0 8px;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .meta-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      font-size: 0.97rem;
+    }
+
+    section {
+      padding: 14px 0 6px;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .content-card {
+      padding: 24px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      background: #f3f4f6;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #374151;
+      font-size: 0.94rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      padding-left: 18px;
+      border-left: 2px solid #dbe3ef;
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 4px;
+      font-size: 1.04rem;
+    }
+
+    .timeline-meta {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .pub-list,
+    .simple-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .pub-list li,
+    .simple-list li {
+      margin-bottom: 10px;
+    }
+
+    .two-col-section {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+    }
+
+    footer {
+      padding: 30px 0 42px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .footer-card {
+      padding: 22px 24px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    code.inline {
+      background: #eff6ff;
+      color: #1e3a8a;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 0.92em;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-2,
+      .two-col-section {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 32px;
+      }
+
+      .hero-main,
+      .hero-side {
+        min-height: unset;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-main,
+      .hero-side,
+      .content-card,
+      .footer-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">Hao Liu</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="card hero-main">
+          <div class="eyebrow">PhD Candidate · The University of Hong Kong</div>
+          <h1>Human Factors, Digital Health, and Human–AI Interaction</h1>
+          <p class="subtitle">
+            I study how people adopt, evaluate, trust, and use digital and AI-enabled health technologies in real-world settings.
+          </p>
+          <p class="intro">
+            My work spans digital health intervention research, usability and human factors evaluation, randomised controlled trials,
+            and ongoing research on how uncertainty in AI outputs shapes attention, trust, control-related behaviours, and effective use.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#contact">Get in touch</a>
+            <a class="btn" href="YOUR_CV_LINK_HERE" target="_blank" rel="noreferrer">Download CV</a>
+            <a class="btn" href="YOUR_GOOGLE_SCHOLAR_LINK_HERE" target="_blank" rel="noreferrer">Google Scholar</a>
+          </div>
+        </div>
+
+        <aside class="card hero-side">
+          <div class="photo-box">
+            <!--
+              PHOTO AREA
+              Replace the div below with an image tag when you upload your photo, for example:
+              <img src="your-photo.jpg" alt="Portrait of Hao Liu" />
+            -->
+            <div class="photo-note">
+              <strong>Photo placeholder</strong><br />
+              Upload your portrait here later.
+            </div>
+          </div>
+
+          <div class="side-block">
+            <p class="side-title">Current Position</p>
+            <ul class="meta-list">
+              <li>PhD Candidate, Department of Data and Systems Engineering</li>
+              <li>The University of Hong Kong</li>
+              <li>Expected completion: late 2026</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap grid-2">
+        <div class="card content-card">
+          <h2 class="section-title">About</h2>
+          <p>
+            I am a PhD candidate specialising in human factors, digital health, and human–computer interaction. Through behavioural and
+            empirical research, I examine how people adopt, evaluate, trust, and work with interactive systems across digital health and
+            related contexts.
+          </p>
+          <p>
+            My broader goal is to understand how digital and AI-enabled technologies can be designed and evaluated so that they are not only
+            technically capable, but also usable, acceptable, safe, and effective in practice.
+          </p>
+        </div>
+
+        <div class="card content-card">
+          <h2 class="section-title">Research Interests</h2>
+          <div class="chips">
+            <span class="chip">Human Factors</span>
+            <span class="chip">Digital Health</span>
+            <span class="chip">Human–Computer Interaction</span>
+            <span class="chip">Human–AI Interaction</span>
+            <span class="chip">Usability &amp; Acceptability</span>
+            <span class="chip">Intervention Evaluation</span>
+            <span class="chip">Cognitive Processing</span>
+            <span class="chip">Rehabilitation</span>
+            <span class="chip">Long-Term Condition Management</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="wrap two-col-section">
+        <div class="card content-card">
+          <h2 class="section-title">Research Overview</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <h3>Digital health intervention research</h3>
+              <p class="timeline-meta">Implementation, usability, acceptability, and trial-based evaluation</p>
+              <p>
+                My previous work has examined digital health interventions including AI-powered rehabilitation for knee osteoarthritis,
+                chatbot-delivered mental health support, health apps, and self-monitoring technologies.
+              </p>
+            </div>
+            <div class="timeline-item">
+              <h3>Human–AI interaction under uncertainty</h3>
+              <p class="timeline-meta">Ongoing theoretical and empirical work</p>
+              <p>
+                More recently, I have been investigating how uncertainty in AI outputs shapes attention, trust, control-related behaviours,
+                and the evolving dynamics of human interaction with AI-enabled systems.
+              </p>
+            </div>
+            <div class="timeline-item">
+              <h3>Evaluation in real-world settings</h3>
+              <p class="timeline-meta">Health technologies in practice rather than in isolation</p>
+              <p>
+                A recurring theme of my work is whether digital technologies can meaningfully support care and self-management once deployed
+                in applied or clinically relevant contexts.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card content-card">
+          <h2 class="section-title">Methods</h2>
+          <div class="chips">
+            <span class="chip">Experimental Research</span>
+            <span class="chip">Usability Evaluation</span>
+            <span class="chip">Human Factors Evaluation</span>
+            <span class="chip">Randomised Controlled Trials</span>
+            <span class="chip">Behavioural Measurement</span>
+            <span class="chip">Physiological Measurement</span>
+            <span class="chip">Statistical Analysis</span>
+          </div>
+          <p class="muted" style="margin-top: 16px;">
+            Technical familiarity includes eye-tracking and health-related behavioural measurement, with broader familiarity with EEG, EMG,
+            and fNIRS-based approaches.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="wrap grid-2">
+        <div class="card content-card">
+          <h2 class="section-title">Selected Publications</h2>
+          <ol class="pub-list">
+            <li>
+              Liu, H., Wang, X., Or, C., et al. (2026). Operational performance, cognitive load, visual attention, and usability of fixed-,
+              manual-, and autonomous-camera control in single- and multiple-camera telemanipulation systems. <em>Applied Ergonomics</em>, 130, 104647.
+            </li>
+            <li>
+              Liu, H., Xie, Z., &amp; Or, C. (2024). Willingness to pay for health apps, its sociodemographic correlates, and reasons for being
+              unwilling to pay. <em>Digital Health</em>, 10, 20552076241248925.
+            </li>
+            <li>
+              Liu, H., Peng, H., Song, X., et al. (2022). Using AI chatbots to provide self-help depression interventions for university students:
+              A randomized trial of effectiveness. <em>Internet Interventions</em>, 27, 100495.
+            </li>
+            <li>
+              Zhao, J., Liu, H., Shan, A., Peng, Y., &amp; Or, C. K. (2026). Nurses’ adherence to double-checking: A systematic review of influencing factors,
+              improvement strategies, and their effectiveness. <em>International Nursing Review</em>, 73, e70179.
+            </li>
+          </ol>
+          <p><a href="YOUR_GOOGLE_SCHOLAR_LINK_HERE" target="_blank" rel="noreferrer">View full publication list on Google Scholar →</a></p>
+        </div>
+
+        <div class="card content-card">
+          <h2 class="section-title">Current Work</h2>
+          <ul class="simple-list">
+            <li>
+              <strong>Under review:</strong> Authentic health photographs evoke higher emotional arousal and behavioural intentions but attract less eye-tracking-based visual attention than AI-generated images.
+            </li>
+            <li>
+              <strong>In preparation:</strong> A dynamic modelling framework for multi-turn human-AI interaction under output uncertainty.
+            </li>
+            <li>
+              <strong>In preparation:</strong> Secondary analysis of a 12-month randomised trial of a mobile health exercise intervention for knee osteoarthritis.
+            </li>
+            <li>
+              <strong>In preparation:</strong> Systematic review and meta-analysis of AI-guided exercise feedback systems in knee osteoarthritis.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap grid-2">
+        <div class="card content-card">
+          <h2 class="section-title">Research Experience</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <h3>A Theoretical Framework for Multi-Turn Human–AI Interaction under Output Uncertainty</h3>
+              <p class="timeline-meta">2025–present · University of Hong Kong</p>
+              <p>Developing a framework to model how interaction unfolds through latent states, transitions, and pathways over time.</p>
+            </div>
+            <div class="timeline-item">
+              <h3>AI-Powered Therapeutic Exercise System for Older Adults with Knee Osteoarthritis</h3>
+              <p class="timeline-meta">2023–present · University of Hong Kong</p>
+              <p>Co-developing and evaluating an intervention technology, with work spanning design, usability evaluation, trial implementation, and data analysis.</p>
+            </div>
+            <div class="timeline-item">
+              <h3>Chatbot-Delivered Self-Administered Depression Intervention for Young Adults</h3>
+              <p class="timeline-meta">2020–2022 · South China University of Technology</p>
+              <p>Designed, developed, and evaluated an AI chatbot for self-administered mental health support.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card content-card">
+          <h2 class="section-title">Education</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <h3>PhD Candidate, The University of Hong Kong</h3>
+              <p class="timeline-meta">2022–present · Supervisor: Dr. Calvin Kalun Or</p>
+            </div>
+            <div class="timeline-item">
+              <h3>MSc (Eng), South China University of Technology</h3>
+              <p class="timeline-meta">2019–2022</p>
+              <p>Thesis: Chatbot-delivered self-administered depression intervention for young adults.</p>
+            </div>
+            <div class="timeline-item">
+              <h3>Visiting Research Student, Nottingham Trent University</h3>
+              <p class="timeline-meta">2018–2019 · Supervisor: Prof. Daizhong Su</p>
+            </div>
+            <div class="timeline-item">
+              <h3>BEng, Harbin Engineering University</h3>
+              <p class="timeline-meta">2015–2019</p>
+              <p>Thesis: Product design informed by online consumer reviews: an LED lamp case study.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <div class="wrap grid-2">
+        <div class="card content-card">
+          <h2 class="section-title">Teaching &amp; Academic Service</h2>
+          <ul class="simple-list">
+            <li><strong>Teaching Assistant, The University of Hong Kong</strong> (2023–2025)<br />Courses: Engineers in Society; Healthcare Systems Engineering; Intelligent Technologies for Industrial Engineering.</li>
+            <li><strong>Lab Assistant, South China University of Technology</strong> (2021–2022)</li>
+            <li><strong>Teaching Assistant, South China University of Technology</strong> (2019–2020)<br />Course: Engineering Drawing.</li>
+            <li><strong>Ad hoc Reviewer</strong> for <em>Applied Ergonomics</em> and <em>PLOS Digital Health</em> (34 verified reviews in total).</li>
+          </ul>
+        </div>
+
+        <div class="card content-card">
+          <h2 class="section-title">Selected Awards</h2>
+          <ul class="simple-list">
+            <li>Postgraduate Scholarship, The University of Hong Kong (2022–present)</li>
+            <li>First-class Scholarship, South China University of Technology (2020–2022)</li>
+            <li>Funded Visiting Student, Nottingham Trent University (2018–2019)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="wrap card footer-card">
+      <h2 class="section-title" style="margin-top:0;">Contact</h2>
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:lhliuhao@connect.hku.hk">lhliuhao@connect.hku.hk</a>
+        &nbsp;|&nbsp;
+        <a href="mailto:hliu8395@gmail.com">hliu8395@gmail.com</a>
+      </p>
+      <p>
+        <strong>Links:</strong>
+        <a href="YOUR_GOOGLE_SCHOLAR_LINK_HERE" target="_blank" rel="noreferrer">Google Scholar</a>
+        &nbsp;·&nbsp;
+        <a href="YOUR_ORCID_LINK_HERE" target="_blank" rel="noreferrer">ORCID</a>
+        &nbsp;·&nbsp;
+        <a href="YOUR_RESEARCHGATE_LINK_HERE" target="_blank" rel="noreferrer">ResearchGate</a>
+        &nbsp;·&nbsp;
+        <a href="YOUR_GITHUB_LINK_HERE" target="_blank" rel="noreferrer">GitHub</a>
+      </p>
+      <p class="muted" style="margin-bottom: 0;">
+        Last updated manually by site owner. Replace placeholders such as <code class="inline">YOUR_CV_LINK_HERE</code> and upload your portrait when ready.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
